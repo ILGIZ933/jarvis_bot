@@ -1,23 +1,19 @@
 const { Telegraf, Markup } = require("telegraf");
 
-// 1. Боттун токени жана сенин жеке юзернеймиң
-const bot = new Telegraf("ӨЗҮҢДҮН_БОТ_ТОКЕНИҢДИ_ЖАЗ");
-const ADMIN_USERNAME = "@сенин_жаңы_юзернеймиң"; // Өткөндө ачкан юзернеймиңди жаз
+const bot = new Telegraf(process.env.BOT_TOKEN);
+const ADMIN_USERNAME = "@JARVIS_support_admin";
 
 const userLanguages = {};
 
-// 🤖 3 ТИЛДЕГИ СУРОО-ЖООП БАЗАСЫ (БУЛ ЖЕРГЕ 50+ СУРОО ОҢОЙ КОШУЛАТ)
 const faqDatabase = {
   ky: {
     welcome:
       "Салам! Мен Жарвистин FAQ ботумун. Төмөнкү баскычтарды колдонуп сурооңузга жооп алыңыз же сурооңузду түз жазыңыз:",
     change_lang: "🔄 Тилди өзгөртүү",
     unknown: `😔 Кечириңиз, мен бул суроого статикалык базадан жооп таба алган жокмун.\n\nКолдоо кызматы (Админ) менен байланышыңыз: ${ADMIN_USERNAME}`,
-    // Статикалык баскычтар үчүн тексттер
     btn_start: "💡 Кантип иштетет?",
     btn_model: "📦 Модель жүктөө",
     btn_price: "💸 Акысызбы?",
-    // Эркин жазыла турган суроолордун базасы (Keywords/Ключевые слова)
     keywords: [
       {
         keys: ["кантип иштетет", "запуск", "кантип күйгүзөм"],
@@ -197,7 +193,7 @@ bot.hears(
 
 bot.on("text", (ctx) => {
   const userId = ctx.from.id;
-  const currentLang = userLanguages[userId] || "ky"; 
+  const currentLang = userLanguages[userId] || "ky";
   const lang = faqDatabase[currentLang];
   const text = ctx.message.text.toLowerCase().trim();
 
