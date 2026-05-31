@@ -1,15 +1,11 @@
 const { Telegraf, Markup } = require("telegraf");
 
-// 1. Бул жерге BotFather'дан алган токениңди жазасың
-const bot = new Telegraf("ӨЗҮҢДҮН_БОТ_ТОКЕНИҢДИ_ЖАЗ");
+const bot = new Telegraf("8916328028:AAHyrwl_8zZFeVSkiYPtYEFaliUZhEo22gk");
 
-// Сенин жеке юзернеймиң (Бот билбей калганда көрсөтөт)
 const ADMIN_USERNAME = "@your_telegram_username";
 
-// Колдонуучулардын тандаган тилин убактылуу сактоочу база (Memory DB)
 const userLanguages = {};
 
-// СТАТИКАЛЫК СУРОО-ЖООР БАЗАСЫ (ЭКИ ТИЛДЕ)
 const faqDatabase = {
   ky: {
     welcome:
