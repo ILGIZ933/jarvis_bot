@@ -1,15 +1,10 @@
 const { Telegraf, Markup } = require("telegraf");
 
-// Боттун токенин ушул жерге экиге бөлүп жазабыз (Коопсуздук үчүн)
-const tokenPart1 = "ӨЗҮҢДҮН_БОТ_ТОКЕНИҢДИН_БИРИНЧИ_ЖАРЫМЫ";
-const tokenPart2 = "ӨЗҮҢДҮН_БОТ_ТОКЕНИҢДИН_ЭКИНЧИ_ЖАРЫМЫ";
-
-const bot = new Telegraf(tokenPart1 + tokenPart2);
-const ADMIN_USERNAME = "@сенин_жаңы_юзернеймиң"; // Өзүңдүн жаңы юзернеймиңди жаз
+const bot = new Telegraf(process.env.BOT_TOKEN);
+const ADMIN_USERNAME = "@JARVIS_support_admin";
 
 const userLanguages = {};
 
-// 🤖 ЖАРДЫМЧЫ БОТТУН КАТАСЫЗ СУРОО-ЖООП БАЗАСЫ
 const faqDatabase = {
   ky: {
     welcome:
